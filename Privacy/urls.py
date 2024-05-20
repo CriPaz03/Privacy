@@ -21,7 +21,6 @@ from feedback.views import *
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
     path("", index, name="home"),
-    path("view-feedback/", viewFedback, name="view-feedback"),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
