@@ -1,17 +1,56 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div class="main-banner" id="top">
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example" id="article">
+                    <option selected>Article gdpr</option>
+                    {% for key, value in article %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example" id="owasp">
+                    <option selected>Owasp</option>
+                    {% for key, value in owasp %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
         <div class="row justify-content-center mt-4">
             <div class="col-4">
                 <div class="input-group mb-3 ">
                     <input type="text" class="form-control" placeholder="Cerca"
-                           aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button type="button" class="btn btn-light" data-mdb-ripple-init>
+                           aria-label="Recipient's username" aria-describedby="button-addon2" id="searchP">
+                    <button type="button" class="btn btn-light" data-mdb-ripple-init id="searchPatterns">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Patterns</th>
+                <th scope="col">Description</th>
+                <th scope="col">Strategies</th>
+            </tr>
+            </thead>
+            <tbody id="bodyPatterns">
+
+            </tbody>
+        </table>
+    </div>
+
 {% endblock content %}
+{% block script %}
+    {{ block.super }}
+    <script src="{% static 'js/posd.js' %}"></script>
+{% endblock %}

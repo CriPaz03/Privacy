@@ -41,6 +41,7 @@ class Owasp(models.Model):
         a10 = "A10", "Server-Side Request Forgery (SSRF)"
 
     top_ten = models.CharField(choices=TopTen.choices, blank=True, null=True, max_length=3)
+    pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True, null=True)
 
 
 class Exemple(models.Model):
