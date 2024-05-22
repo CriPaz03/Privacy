@@ -19,7 +19,7 @@ def getFeedback():
     data = [
         {
             "descrizione": f.descrizione,
-            "username": f.user.username
+            "username": f.user.username,
         } for f in feedback
     ]
     return data

@@ -556,8 +556,8 @@
               <p>{{ f.descrizione }}</p>
               <div class="author">
                 <img src="../static/assets/images/testimonial-author.jpg" alt="">
-                <span class="category">Full Stack Master</span>
-                <h4>{{ f.user.username }}</h4>
+                <span class="category">{{ f.username }}</span>
+                <h4 class="text-light">{{ f.username }}</h4>
               </div>
             </div>
               {% endfor %}
