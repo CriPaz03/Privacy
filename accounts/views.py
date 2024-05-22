@@ -9,7 +9,6 @@ def registrazione_view(request):
     if request.method == "POST":
         form = FormRegistrazione(request.POST)
         if form.is_valid():
-            print(form)
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password1"]

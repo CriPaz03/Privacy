@@ -6,11 +6,16 @@
         <div class="row justify-content-center mt-4">
             <div class="col-4 text-center text-light">
                 <h2 class="text-light">Accedi</h2>
-                <form class="" action="" method="POST" novalidate>
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <input type="submit" class="btn btn-info" value="Login">
-                    <input type="hidden" name="next" value="{{ next }}">
+
+<form class="" action="" method="POST" novalidate="">
+                        {% csrf_token %}
+<br>
+<div id="div_id_username" class="form-group">
+    <div> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" class="textinput form-control" required="" id="id_username" placeholder="Username"> </div><br> </div> <div id="div_id_password" class="form-group">
+                <div> <input type="password" name="password" autocomplete="current-password" class="passwordinput form-control" required="" id="id_password" placeholder="Password"> </div> </div>
+    <br>
+                    <input type="submit" class="btn btn-primary" value="Login">
+                    <input type="hidden" name="next" value="">
                 </form>
                 <br>
                 <p><a href="{% url 'password_reset' %}">Password dimenticata?</a></p>
