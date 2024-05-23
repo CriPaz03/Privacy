@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{%load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 {% block head_title %}{{ block.super }} - Registazione{% endblock head_title %}
 
 
@@ -11,36 +11,40 @@
                     <h2>Registrati</h2>
                     <form class="row g-3" method="POST">
                         {% csrf_token %}
-                          <div class="col-md-6">
-                                <label for="id_username" class="form-label"></label>
-                                <input  class="form-control" id="id_username" placeholder="Username*" name="username">
-                              </div>
-                              <div class="col-md-6">
-                                <label for="id_email" class="form-label"></label>
-                                <input type="email" class="form-control" id="id_email" placeholder="Email*" name="email">
-                              </div>
-                              <div class="col-md-6">
-                                <label for="id_password1" class="form-label"></label>
-                                <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Password*">
-                              </div>
-                                                    <div class="col-md-6">
-                                <label for="id_password2" class="form-label"></label>
-                                <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Conferma Password*">
-                              </div>
-                                                    <div style="text-align: left">
-                                                        <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                              <label class="form-check-label" for="inlineRadio1">Ingegnere del Software</label>
+                        <div class="col-md-6">
+                            <label for="id_username" class="form-label"></label>
+                            <input class="form-control" id="id_username" placeholder="Username*" name="username">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_email" class="form-label"></label>
+                            <input type="email" class="form-control" id="id_email" placeholder="Email*" name="email">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_password1" class="form-label"></label>
+                            <input type="password" class="form-control" id="id_password1" name="password1"
+                                   placeholder="Password*">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="id_password2" class="form-label"></label>
+                            <input type="password" class="form-control" id="id_password2" name="password2"
+                                   placeholder="Conferma Password*">
+                        </div>
+                        <div style="text-align: left">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                       value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Ingegnere del Software</label>
                             </div>
                             <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                              <label class="form-check-label" for="inlineRadio2">Azienda</label>
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                       value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Azienda</label>
                             </div>
                         </div>
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary">Crea Account</button>
-  </div>
-</form>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Registrati</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
