@@ -1,6 +1,7 @@
 $(document).ready(function () {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     $("#searchPatterns").on("click", function () {
+        $("#bodyPatterns").empty()
         let data = JSON.stringify({
             text: $("#searchP").val(),
             article: $("#article").val(),
@@ -14,7 +15,6 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response){
                 let html = ""
-                console.log(response)
                 for(let i in response){
                     html += `<tr>
                     <th>${i}</th>
