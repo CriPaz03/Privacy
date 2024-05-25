@@ -19,10 +19,11 @@ def getFeedback():
     return data
 
 def addFeedback(request):
+
     if request.method == "POST":
-        if request.user.is_authenticated:
-            json_data = json.loads(request.body, encoding='utf-8')
-            print(json_data)
-        else:
-            return JsonResponse({"error": "User is not authenticated"}, status=400)
+        json_str = request.body.decode('utf-8')
+        description = json_str.replace(f"username={request.user.username}&message=", "")
+        Feedback.objects.create(user=request.user, descrizione=description.replace("+", " "))
+        return JsonResponse({"success": True})
+    return JsonResponse({"success": False})
 
