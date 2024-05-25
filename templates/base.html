@@ -147,9 +147,12 @@
                             <div class="header-text">
                                 <span class="category">Azienda</span>
                                 <h2>Azienda</h2>
-                                <p>Il nostro sito web è una risorsa essenziale per le aziende che desiderano rimanere aggiornate e conformi alle normative vigenti.
-                                    Offriamo contenuti accurati e verificati che coprono una vasta gamma di argomenti rilevanti per le imprese,
-                                    inclusi gli ultimi sviluppi legislativi e le migliori pratiche per la gestione della privacy e dei dati personali</p>
+                                <p>Il nostro sito web è una risorsa essenziale per le aziende che desiderano rimanere
+                                    aggiornate e conformi alle normative vigenti.
+                                    Offriamo contenuti accurati e verificati che coprono una vasta gamma di argomenti
+                                    rilevanti per le imprese,
+                                    inclusi gli ultimi sviluppi legislativi e le migliori pratiche per la gestione della
+                                    privacy e dei dati personali</p>
                                 <div class="buttons">
                                     <div class="main-button">
                                         <a href="#">Visita ora</a>
@@ -164,8 +167,10 @@
                             <div class="header-text">
                                 <span class="category">Articoli</span>
                                 <h2>Leggi gli articoli del GDPR</h2>
-                                <p>Scopri i nostri articoli approfonditi e aggiornati sul Regolamento Generale sulla Protezione dei Dati.
-                                    Una risorsa indispensabile per rimanere informati e conformi alle normative sulla privacy e sulla protezione dei dati.</p>
+                                <p>Scopri i nostri articoli approfonditi e aggiornati sul Regolamento Generale sulla
+                                    Protezione dei Dati.
+                                    Una risorsa indispensabile per rimanere informati e conformi alle normative sulla
+                                    privacy e sulla protezione dei dati.</p>
                                 <div class="buttons">
                                     <div class="main-button">
                                         <a href="#">Visita ora</a>
@@ -192,7 +197,8 @@
                         </div>
                         <div class="main-content">
                             <h4>Ingegnere del software</h4>
-                            <p>Può conoscere i Privacy Patterns associati a debolezze così che possa garantire una maggiore sicurezza dei dati.</p>
+                            <p>Può conoscere i Privacy Patterns associati a debolezze così che possa garantire una
+                                maggiore sicurezza dei dati.</p>
                             <div class="main-button">
                                 <a href="{% url 'posd' %}">Scopri di più</a>
                             </div>
@@ -206,7 +212,8 @@
                         </div>
                         <div class="main-content">
                             <h4>Azienda</h4>
-                            <p> Può conoscere gli articoli del GDPR associati ad un pattern così che possa usarle come supporto alla formazione dei dipendenti</p>
+                            <p> Può conoscere gli articoli del GDPR associati ad un pattern così che possa usarle come
+                                supporto alla formazione dei dipendenti</p>
                             <div class="main-button">
                                 <a href="#">Scopri di più</a>
                             </div>
@@ -220,7 +227,8 @@
                         </div>
                         <div class="main-content">
                             <h4>Responsabile della Sicurezza</h4>
-                            <p>Riceve notifiche su cambiamenti della PKB per essere informato sugli aggiornamenti della PKB</p>
+                            <p>Riceve notifiche su cambiamenti della PKB per essere informato sugli aggiornamenti della
+                                PKB</p>
                             <div class="main-button">
                                 <a href="#">Scopri di più</a>
                             </div>
@@ -241,15 +249,17 @@
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne"
                                         aria-expanded="true" aria-controls="collapseOne">
-                                   Quali sono le nostre fonti ?
+                                    Quali sono le nostre fonti ?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                  data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     Ogni contenuto pubblicato sul nostro sito è sottoposto a rigorosi controlli
-                                    per garantire l'accuratezza e l'affidabilità delle informazioni fornite. La <b> conformità</b> con il <b>GDPR</b>
-                                    è un principio guida che ci impegniamo a rispettare in tutte le nostre pubblicazioni.
+                                    per garantire l'accuratezza e l'affidabilità delle informazioni fornite. La <b>
+                                    conformità</b> con il <b>GDPR</b>
+                                    è un principio guida che ci impegniamo a rispettare in tutte le nostre
+                                    pubblicazioni.
                                 </div>
                             </div>
                         </div>
@@ -263,9 +273,12 @@
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                  data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                   Tutti gli aggiornamenti del sito sono gestiti dai nostri amministratori di sistema. Grazie a uno studio accurato e continuo,
-                                    questi professionisti garantiscono che le informazioni presenti sul sito siano sempre aggiornate, assicurando che ogni
-                                    contenuto rifletta la versione più recente delle normative e degli sviluppi pertinenti.
+                                    Tutti gli aggiornamenti del sito sono gestiti dai nostri amministratori di sistema.
+                                    Grazie a uno studio accurato e continuo,
+                                    questi professionisti garantiscono che le informazioni presenti sul sito siano
+                                    sempre aggiornate, assicurando che ogni
+                                    contenuto rifletta la versione più recente delle normative e degli sviluppi
+                                    pertinenti.
                                 </div>
                             </div>
                         </div>
@@ -418,80 +431,83 @@
     <div class="section testimonials">
         <div class="container">
             <div class="row">
-        <div class="col-lg-7">
-          <div class="owl-carousel owl-testimonials">
-              {% for f in feedback  %}
-                  <div class="item">
-              <p>{{ f.descrizione }}</p>
-              <div class="author">
-                <img src="../static/assets/images/user.png" alt="">
-                <span class="category">{{ f.username }}</span>
-                <h4 class="text-light">{{ f.username }}</h4>
-              </div>
-            </div>
-              {% endfor %}
-          </div>
-        </div>
-        <div class="col-lg-5 align-self-center">
-          <div class="section-heading">
-            <h6>Feedback</h6>
-            <h1>Cosa pensano i clienti di noi?</h1>
-            <p>You can search free CSS templates on Google using different keywords such as templatemo portfolio,
-              templatemo gallery, templatemo blue color, etc.</p>
-          </div>
-        </div>
-      </div>
-        </div>
-    </div>
-
-
-
-    <div class="contact-us section" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6  align-self-center">
-                    <div class="section-heading">
-                        <h6>La tua opinione conta!</h6>
-                        <h1>Sentiti libero di contattarci in qualsiasi momento</h1>
-                        <p>vuoto</p>
-
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-us-content">
-                        <form id="contact-form" action="" method="post">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <input type="name" name="name" id="name" placeholder="Il tuo nome..."
-                                               autocomplete="on" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                               placeholder="La tua E-mail..."
-                                               required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <textarea name="message" id="message" placeholder="Il tuo messaggio"></textarea>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="orange-button">Mandalo ora
-                                        </button>
-                                    </fieldset>
+                <div class="col-lg-7">
+                    <div class="owl-carousel owl-testimonials">
+                        {% for f in feedback %}
+                            <div class="item">
+                                <p>{{ f.descrizione }}</p>
+                                <div class="author">
+                                    <img src="../static/assets/images/user.png" alt="">
+                                    <span class="category">{{ f.username }}</span>
+                                    <h4 class="text-light">{{ f.username }}</h4>
                                 </div>
                             </div>
-                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-5 align-self-center">
+                    <div class="section-heading">
+                        <h6>Feedback</h6>
+                        <h1>Cosa pensano i clienti di noi?</h1>
+                        <p>You can search free CSS templates on Google using different keywords such as templatemo
+                            portfolio,
+                            templatemo gallery, templatemo blue color, etc.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    {% if  request.user.is_authenticated %}
+
+        <div class="contact-us section" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6  align-self-center">
+                        <div class="section-heading">
+                            <h6>La tua opinione conta!</h6>
+                            <h1>Sentiti libero di contattarci in qualsiasi momento</h1>
+                            <p>vuoto</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="contact-us-content">
+                            <div id="contact-form" >
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input type="name" name="name" id="id_username" placeholder="Il tuo nome..."
+                                                   autocomplete="on" value="{{ request.user.username }}" disabled>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <input type="text" name="email" id="id_email" pattern="[^ @]*@[^ @]*"
+                                                   placeholder="La tua E-mail..." value="{{ request.user.email }}"
+                                                   required="" disabled>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <textarea name="message" id="id_message"
+                                                      placeholder="Il tuo messaggio"></textarea>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <fieldset>
+                                            <button type="button" id="addFeedback" class="orange-button">Mandalo ora
+                                            </button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 <footer>
     <div class="container">
@@ -501,18 +517,19 @@
     </div>
 </footer>
 {% block script %}
-<!-- Scripts -->
-<!-- Bootstrap core JavaScript -->
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<!--<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>-->
-<script src="{% static 'assets/js/isotope.min.js' %}"></script>
-<script src="{% static 'assets/js/owl-carousel.js' %}"></script>
-<script src="{% static 'assets/js/counter.js' %}"></script>
-<script src="{% static 'assets/js/custom.js' %}"></script>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <!--<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>-->
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/counter.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'script.js' %}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 {% endblock %}
 </body>
 

@@ -8,12 +8,6 @@ from django.views.generic import ListView
 
 # Create your views here.
 
-'''
-class viewFedback(ListView):
-    model = Feedback
-    template_name = "feedback.html"
-    '''
-
 def getFeedback():
     feedback = Feedback.objects.all()
     data = [
@@ -23,3 +17,13 @@ def getFeedback():
         } for f in feedback
     ]
     return data
+
+def addFeedback(request):
+
+    if request.method == "POST":
+        json_str = request.body.decode('utf-8')
+        description = json_str.replace(f"username={request.user.username}&message=", "")
+        Feedback.objects.create(user=request.user, descrizione=description.replace("+", " "))
+        return JsonResponse({"success": True})
+    return JsonResponse({"success": False})
+
