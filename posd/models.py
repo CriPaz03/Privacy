@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -47,3 +48,18 @@ class Owasp(models.Model):
 class Exemple(models.Model):
     exemple = models.TextField(max_length=500, verbose_name="Exemple", blank=True, null=True)
     pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True, null=True)
+
+class PrivacyByDesign(models.Model):
+    class Design(models.TextChoices):
+        ps = "PS","Privacy as the default setting"
+        pd = "PD", "Privacy Embedded into Design"
+        vs = "VS", "Visibility and Transparency"
+        pr = "PR", "Proactive not Reactive"
+        rp = "RP", "Respect for User Privacy"
+
+    design = models.CharField(choices=Design.choices, null=True, blank=True, max_length=3)
+    pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE)
+
+class Notification(models.Model):
+    pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)

@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from base.views import *
-from feedback.views import *
-from posd.views import posdView, searchPatterns
+
+from base.views import index
+from posd.views import posdView, searchPatterns, sendNotification
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('posd/', posdView, name="posd"),
     path('search-patterns/', searchPatterns, name="search_patterns"),
+    path('send-notification/<pk>/', sendNotification, name="search_patterns"),
 ]

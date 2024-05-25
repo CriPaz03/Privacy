@@ -17,15 +17,24 @@ $(document).ready(function () {
                 let html = ""
                 for(let i in response){
                     html += `<tr>
-                    <th>${i}</th>
+                    <th><input class="form-check-input table-check" type="checkbox" id="${i}"></th>
                     <td>${response[i]["patterns"]}</td>
                     <td>${response[i]["description"]}</td>
                     <td>${response[i]["strategies"]}</td>
                     </tr>`
                 }
                 $("#bodyPatterns").append(html)
-
+                if(html!=="")
+                    $("#buttons").removeClass("invisible")
+                else
+                    $("#buttons").removeClass("visible").addClass("invisible")
             }
         })
+    })
+
+    $("#sendNotify").on("click", function (){
+        let check = $(".table-check:checked")
+        console.log(check)
+
     })
 })

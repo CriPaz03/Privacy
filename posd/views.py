@@ -39,3 +39,12 @@ def searchPatterns(request):
                                  "description": i["description"],
                                  "strategies": i["strategies"]}
         return JsonResponse(dict_pkb)
+
+
+def sendNotification(request, pk):
+    if request.method == "GET":
+        pkb = Pkb.objects.get(pk=pk)
+        Notification.objects.create(pkb=pkb, user=request.user)
+        return JsonResponse({"success": True})
+    else:
+        return JsonResponse({"success": False})
