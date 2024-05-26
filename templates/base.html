@@ -76,7 +76,7 @@
                         <li class="scroll-to-section"><a href="#events">Events</a></li>
                         {% if request.user.is_authenticated %}
                             <li class="scroll-to-section">
-                                <div class="dropdown">
+                                <div class="dropdown" id="dropdownNav">
                                     <button class="btn dropdown-toggle text-light" type="button"
                                             id="dropdownMenuButton1"
                                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -496,7 +496,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <fieldset>
-                                            <button type="button" id="addFeedback" class="orange-button">Mandalo ora
+                                            <button type="button" id="addFeedback" class="orange-button">Invia feedback
                                             </button>
                                         </fieldset>
                                     </div>
