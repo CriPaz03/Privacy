@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="main-banner" id="top">
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <div class="input-group">
+                    <select class="form-select" aria-label="Default select example" id="article">
+                        <option selected>Article gdpr</option>
+                        {% for key, value in article %}
+                            <option value="{{ key }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                    <button class="btn btn-outline-secondary" type="button">Iso</button>
+                    <button class="btn btn-outline-secondary" type="button">Spiegazione articolo</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+    {{ block.super }}
+
+{% endblock %}

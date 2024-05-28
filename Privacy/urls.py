@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from base.views import index
-from posd.views import posdView, searchPatterns, sendNotification
+from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda
 from feedback.views import addFeedback
 
 urlpatterns = [
@@ -26,8 +26,12 @@ urlpatterns = [
     path("", index, name="home"),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+
     path('posd/', posdView, name="posd"),
+    path('posd-azienda/', posdViewAzienda, name="posd_azienda"),
     path('search-patterns/', searchPatterns, name="search_patterns"),
     path('send-notification/<pk>/', sendNotification, name="search_patterns"),
+    path('exemple-patterns/<pk>/', exemplePatterns, name="exemple_patterns"),
+
     path('add-feedback/', addFeedback, name="add_feedback"),
 ]

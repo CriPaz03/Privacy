@@ -45,8 +45,8 @@ class Owasp(models.Model):
     pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True, null=True)
 
 
-class Exemple(models.Model):
-    exemple = models.TextField(max_length=500, verbose_name="Exemple", blank=True, null=True)
+class Example(models.Model):
+    example = models.TextField(max_length=500, verbose_name="Exemple", blank=True, null=True)
     pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True, null=True)
 
 class PrivacyByDesign(models.Model):

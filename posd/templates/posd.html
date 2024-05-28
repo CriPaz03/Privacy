@@ -36,7 +36,8 @@
             <button type="button" class="btn btn-outline-dark text-light" data-mdb-ripple-init id="sendNotify">
                 Invia notifica
             </button>
-            <button type="button" class="btn btn-outline-dark text-light" data-mdb-ripple-init id="exemple">
+            <button type="button" class="btn btn-outline-dark text-light" id="exemple" data-bs-toggle="modal"
+                    data-bs-target="#modalExemple">
                 Spiega un esempuio
             </button>
         </div>
@@ -56,8 +57,27 @@
             </tbody>
         </table>
     </div>
+    <div class="modal" id="modalExemple" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Esempi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="bodyExemple">
+                    <ul class="list-group" id="listExemple">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock content %}
+
 {% block script %}
     {{ block.super }}
     <script src="{% static 'js/posd.js' %}"></script>

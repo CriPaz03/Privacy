@@ -48,3 +48,17 @@ def sendNotification(request, pk):
         return JsonResponse({"success": True})
     else:
         return JsonResponse({"success": False})
+
+def exemplePatterns(request, pk):
+    if request.method == "GET":
+        exemple = Example.objects.filter(pkb_id=pk).values("id", "example")
+        dict_exemple = {}
+        for i in exemple:
+            dict_exemple.setdefault(i["id"], []).append(i["example"])
+        return JsonResponse({"success": True, "exemple": dict_exemple})
+
+
+def posdViewAzienda(request):
+    article = ArticleGdpr.Article.choices
+    context = {'article': article}
+    return render(request, "azienda.html", context)
