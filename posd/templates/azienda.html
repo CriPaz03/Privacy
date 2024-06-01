@@ -11,18 +11,22 @@
                             <option value="{{ key }}">{{ value }}</option>
                         {% endfor %}
                     </select>
-                    <button class="btn btn-outline-secondary" type="button">Iso</button>
-                    <button class="btn btn-outline-secondary" type="button">Spiegazione articolo</button>
+                    <button class="btn btn-outline-secondary" type="button" id="sArticle">Spiegazione articolo</button>
                 </div>
 
             </div>
         </div>
+    </div>
 
+    <div class="container">
+        <p id="responseGpt"></p>
     </div>
 
 {% endblock content %}
 
 {% block script %}
     {{ block.super }}
+    <script src="{% static 'js/azienda.js' %}"></script>
+
 
 {% endblock %}

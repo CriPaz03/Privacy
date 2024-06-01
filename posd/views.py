@@ -1,5 +1,8 @@
 import json
 
+import openai
+
+
 from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -62,3 +65,15 @@ def posdViewAzienda(request):
     article = ArticleGdpr.Article.choices
     context = {'article': article}
     return render(request, "azienda.html", context)
+
+def spiegazioneArticle(request, string):
+    if request.method == "GET":
+        article = ArticleGdpr.Article(string).label
+        openai.api_key = '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'
+        stream = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": f"Mi spieghi questo articolo del gdpr ${article}"}],
+        )
+
+        return JsonResponse({"success": True, "response": str(stream.chois[0].message.content)})
+    return JsonResponse({"success": False})
