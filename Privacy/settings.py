@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'feedback',
     'accounts',
     'posd',
+    'segnalazioni',
 
 ]
 
@@ -90,6 +91,7 @@ DATABASES = {
     }
 }
 
+GPT_KEY = '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'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

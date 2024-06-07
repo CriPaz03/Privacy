@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
 
+from Privacy.settings import GPT_KEY
 from posd.models import *
 
 
@@ -69,7 +70,7 @@ def posdViewAzienda(request):
 def spiegazioneArticle(request, string):
     if request.method == "GET":
         article = ArticleGdpr.Article(string).label
-        openai.api_key = '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'
+        openai.api_key = GPT_KEY
         stream = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": f"Mi spieghi questo articolo del gdpr ${article}"}],

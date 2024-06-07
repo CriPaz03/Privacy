@@ -20,6 +20,7 @@ from django.urls import path, include
 from base.views import index
 from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda, spiegazioneArticle
 from feedback.views import addFeedback
+from segnalazioni.views import segnalazioneView, sendSegnalazione
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
@@ -35,4 +36,7 @@ urlpatterns = [
     path('exemple-patterns/<pk>/', exemplePatterns, name="exemple_patterns"),
 
     path('add-feedback/', addFeedback, name="add_feedback"),
+
+    path('segnalazione/', segnalazioneView, name="segnalazione"),
+    path('valida-segnalazione/', sendSegnalazione, name="valida_segnalazione"),
 ]
