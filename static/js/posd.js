@@ -33,7 +33,23 @@ $(document).ready(function () {
     })
 
     $("#sendNotify").on("click", function () {
-        let check = $(".table-check:checked")
+        let radio = $(".form-check-label")
+        for (let i = 0; i < radio.length; i++) {
+            let id = radio[i].id
+            if ($("#exampleRadios" + id).is(":checked")) {
+                $.ajax({
+                    method: "GET",
+                    url: "/send-notification/" + id,
+                    success: function (response) {
+                        if (response["success"] === true) {
+                            alert("Sistema di notifiche attivo")
+                        }else {
+                            alert("ERRORE")
+                        }
+                    }
+                })
+            }
+        }
     })
 
     $("#exemple").on("click", function () {
@@ -50,6 +66,28 @@ $(document).ready(function () {
                             for (let r in response["exemple"]) {
                                 for (let b = 0; b < response["exemple"][r].length; b++) {
                                     $("#listExemple").append(`<li class="list-group-item">${response["exemple"][r][b]}</li>`)
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        }
+    })
+    $("#design").on("click", function () {
+        let radio = $(".form-check-label")
+        for (let i = 0; i < radio.length; i++) {
+            let id = radio[i].id
+            if ($("#exampleRadios" + id).is(":checked")) {
+                $("#listDesign").html("")
+                $.ajax({
+                    method: "GET",
+                    url: "/privacy-by-design/" + id,
+                    success: function (response) {
+                        if (response["success"] === true) {
+                            for (let r in response["privacy"]) {
+                                for (let b = 0; b < response["privacy"][r].length; b++) {
+                                    $("#listDesign").append(`<li class="list-group-item">${response["privacy"][r][b]}</li>`)
                                 }
                             }
                         }

@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from base.views import index
-from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda, spiegazioneArticle
+from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda, spiegazioneArticle, \
+    privacyByDesign
 from feedback.views import addFeedback
 from segnalazioni.views import segnalazioneView, sendSegnalazione
 
@@ -34,6 +35,7 @@ urlpatterns = [
     path('search-patterns/', searchPatterns, name="search_patterns"),
     path('send-notification/<pk>/', sendNotification, name="search_patterns"),
     path('exemple-patterns/<pk>/', exemplePatterns, name="exemple_patterns"),
+    path('privacy-by-design/<pk>/', privacyByDesign, name="exemple_patterns"),
 
     path('add-feedback/', addFeedback, name="add_feedback"),
 

@@ -60,6 +60,16 @@ def exemplePatterns(request, pk):
         for i in exemple:
             dict_exemple.setdefault(i["id"], []).append(i["example"])
         return JsonResponse({"success": True, "exemple": dict_exemple})
+def privacyByDesign(request, pk):
+    if request.method == "GET":
+        design = PrivacyByDesign.objects.filter(pkb_id=pk).values("id", "design")
+        dict_exemple = {}
+        for i in design:
+            for choice in PrivacyByDesign.Design.choices:
+                if choice[0] == i["design"]:
+                    dict_exemple.setdefault(i["id"], []).append(choice[1])
+
+        return JsonResponse({"success": True, "privacy": dict_exemple})
 
 
 def posdViewAzienda(request):
