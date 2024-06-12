@@ -2,6 +2,8 @@ import json
 
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
+
 from feedback.models import Feedback
 from django.views.generic import ListView
 
@@ -18,6 +20,8 @@ def get_Feedback():
     ]
     return data
 
+
+@require_http_methods(["POST"])
 def add_Feedback(request):
 
     if request.method == "POST":

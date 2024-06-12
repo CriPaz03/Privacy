@@ -13,7 +13,7 @@ from posd.models import ArticleGdpr, Owasp, Pkb, Notification, Example, PrivacyB
 
 # Create your views here.
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET"])
 def posd_view(request):
     article = ArticleGdpr.Article.choices
     owasp = Owasp.TopTen.choices
