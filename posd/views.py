@@ -2,10 +2,10 @@ import json
 
 import openai
 
-
 from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_http_methods
 
 from Privacy.settings import GPT_KEY
 from posd.models import ArticleGdpr, Owasp, Pkb, Notification, Example, PrivacyByDesign
@@ -13,6 +13,7 @@ from posd.models import ArticleGdpr, Owasp, Pkb, Notification, Example, PrivacyB
 
 # Create your views here.
 
+@require_http_methods(["GET", "POST"])
 def posd_view(request):
     article = ArticleGdpr.Article.choices
     owasp = Owasp.TopTen.choices
@@ -20,6 +21,7 @@ def posd_view(request):
     return render(request, "posd.html", context)
 
 
+@require_http_methods(["POST"])
 def search_patterns(request):
     if request.method == "POST":
         json_str = request.body.decode('utf-8')
@@ -45,6 +47,7 @@ def search_patterns(request):
         return JsonResponse(dict_pkb)
 
 
+@require_http_methods(["GET"])
 def send_notification(request, pk):
     if request.method == "GET":
         pkb = Pkb.objects.get(pk=pk)
@@ -53,6 +56,8 @@ def send_notification(request, pk):
     else:
         return JsonResponse({"success": False})
 
+
+@require_http_methods(["GET"])
 def exemple_patterns(request, pk):
     if request.method == "GET":
         exemple = Example.objects.filter(pkb_id=pk).values("id", "example")
@@ -60,6 +65,9 @@ def exemple_patterns(request, pk):
         for i in exemple:
             dict_exemple.setdefault(i["id"], []).append(i["example"])
         return JsonResponse({"success": True, "exemple": dict_exemple})
+
+
+@require_http_methods(["GET"])
 def privacy_by_design(request, pk):
     if request.method == "GET":
         design = PrivacyByDesign.objects.filter(pkb_id=pk).values("id", "design")
@@ -73,11 +81,14 @@ def privacy_by_design(request, pk):
     return JsonResponse({"success": False})
 
 
+@require_http_methods(["GET"])
 def posd_view_azienda(request):
     article = ArticleGdpr.Article.choices
     context = {'article': article, 'patterns': Pkb.objects.all()}
     return render(request, "azienda.html", context)
 
+
+@require_http_methods(["GET"])
 def spiegazione_article(request, string):
     if request.method == "GET":
         article = ArticleGdpr.Article(string).label

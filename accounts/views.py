@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import HttpResponseRedirect, render
+from django.views.decorators.http import require_http_methods
 
 from accounts.forms import FormRegistrazione
 
 
+@require_http_methods(["POST"])
 def registrazione_view(request):
     if request.method == "POST":
         form = FormRegistrazione(request.POST)
