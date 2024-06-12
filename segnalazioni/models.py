@@ -5,4 +5,4 @@ from django.db import models
 
 class Seganalazione(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
-    description = models.TextField(verbose_name="Descrizione", blank=True, null=True)
+    description = models.TextField(verbose_name="Descrizione", blank=True)

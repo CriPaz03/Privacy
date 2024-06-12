@@ -8,7 +8,7 @@ from django.views.generic import ListView
 
 # Create your views here.
 
-def getFeedback():
+def get_Feedback():
     feedback = Feedback.objects.all()
     data = [
         {
@@ -18,7 +18,7 @@ def getFeedback():
     ]
     return data
 
-def addFeedback(request):
+def add_Feedback(request):
 
     if request.method == "POST":
         json_str = request.body.decode('utf-8')

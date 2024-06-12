@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from Privacy.settings import GPT_KEY
-from posd.models import *
+from posd.models import ArticleGdpr, Owasp, Pkb, Notification, Example, PrivacyByDesign
 
 
 # Create your views here.

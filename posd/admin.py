@@ -1,5 +1,6 @@
 from django.contrib import admin
-from posd.models import *
+from posd.models import Pkb, Iso, ArticleGdpr, Owasp, Example
+
 # Register your models here.
 admin.site.register(Pkb)
 admin.site.register(Iso)

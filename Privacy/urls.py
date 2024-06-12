@@ -20,7 +20,7 @@ from django.urls import path, include
 from base.views import index
 from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda, spiegazioneArticle, \
     privacyByDesign
-from feedback.views import addFeedback
+from feedback.views import add_Feedback
 from segnalazioni.views import segnalazioneView, sendSegnalazione
 
 urlpatterns = [
@@ -37,7 +37,7 @@ urlpatterns = [
     path('exemple-patterns/<pk>/', exemplePatterns, name="exemple_patterns"),
     path('privacy-by-design/<pk>/', privacyByDesign, name="exemple_patterns"),
 
-    path('add-feedback/', addFeedback, name="add_feedback"),
+    path('add-feedback/', add_Feedback, name="add_feedback"),
 
     path('segnalazione/', segnalazioneView, name="segnalazione"),
     path('valida-segnalazione/', sendSegnalazione, name="valida_segnalazione"),

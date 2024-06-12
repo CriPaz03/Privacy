@@ -1,12 +1,10 @@
 from django.shortcuts import render
-from base.models import *
-from feedback.models import Feedback
-from feedback.views import getFeedback
+from feedback.views import get_Feedback
 
 
 # Create your views here.
 
 def index(request):
-    feedback = getFeedback()[:5]
+    feedback = get_Feedback()[:5]
     context = {"feedback": feedback}
     return render(request, "base.html", context)
