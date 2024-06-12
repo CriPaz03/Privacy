@@ -14,8 +14,10 @@ $(document).ready(function () {
             data: data,
             dataType: "json",
             success: function (response) {
-                if(response["success"] === true)
+                if(response["success"] === true){
+                    alert("Feedback aggiunto con successo")
                     window.location.reload()
+                }
                 else
                     alert("Feedback non andato a buon fine")
             }

@@ -53,41 +53,27 @@ $(document).ready(function () {
     })
 
     $("#exemple").on("click", function () {
-        let radio = $(".form-check-label")
-        for (let i = 0; i < radio.length; i++) {
-            let id = radio[i].id
-            if ($("#exampleRadios" + id).is(":checked")) {
-                $("#listExemple").html("")
-                $.ajax({
-                    method: "GET",
-                    url: "/exemple-patterns/" + id,
-                    success: function (response) {
-                        if (response["success"] === true) {
-                            for (let r in response["exemple"]) {
-                                for (let b = 0; b < response["exemple"][r].length; b++) {
-                                    $("#listExemple").append(`<li class="list-group-item">${response["exemple"][r][b]}</li>`)
-                                }
-                            }
-                        }
-                    }
-                })
-            }
-        }
+        callApi("/exemple-patterns/", "#listExemple", "exemple")
     })
     $("#design").on("click", function () {
-        let radio = $(".form-check-label")
+        callApi("/privacy-by-design/", "#listDesign", "privacy")
+    })
+})
+
+function callApi(urls, list, responseSucc){
+    let radio = $(".form-check-label")
         for (let i = 0; i < radio.length; i++) {
             let id = radio[i].id
             if ($("#exampleRadios" + id).is(":checked")) {
-                $("#listDesign").html("")
+                $(list).html("")
                 $.ajax({
                     method: "GET",
-                    url: "/privacy-by-design/" + id,
+                    url: urls + id,
                     success: function (response) {
                         if (response["success"] === true) {
-                            for (let r in response["privacy"]) {
-                                for (let b = 0; b < response["privacy"][r].length; b++) {
-                                    $("#listDesign").append(`<li class="list-group-item">${response["privacy"][r][b]}</li>`)
+                            for (let r in response[responseSucc]) {
+                                for (let b = 0; b < response[responseSucc][r].length; b++) {
+                                    $(list).append(`<li class="list-group-item">${response[responseSucc][r][b]}</li>`)
                                 }
                             }
                         }
@@ -95,5 +81,4 @@ $(document).ready(function () {
                 })
             }
         }
-    })
-})
+}
