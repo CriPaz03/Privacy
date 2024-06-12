@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 from base.views import index
-from posd.views import posdView, searchPatterns, sendNotification, exemplePatterns, posdViewAzienda, spiegazioneArticle, \
-    privacyByDesign
+from posd.views import posd_view, search_patterns, send_notification, exemple_patterns, posd_view_azienda, spiegazione_article, \
+    privacy_by_design
 from feedback.views import add_Feedback
 from segnalazioni.views import segnalazioneView, sendSegnalazione
 
@@ -29,13 +29,13 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 
-    path('posd/', posdView, name="posd"),
-    path('posd-azienda/', posdViewAzienda, name="posd_azienda"),
-    path('spiegazioneArticle/<string>/', spiegazioneArticle, name="spiegazioneArticle"),
-    path('search-patterns/', searchPatterns, name="search_patterns"),
-    path('send-notification/<pk>/', sendNotification, name="search_patterns"),
-    path('exemple-patterns/<pk>/', exemplePatterns, name="exemple_patterns"),
-    path('privacy-by-design/<pk>/', privacyByDesign, name="exemple_patterns"),
+    path('posd/', posd_view, name="posd"),
+    path('posd-azienda/', posd_view_azienda, name="posd_azienda"),
+    path('spiegazioneArticle/<string>/', spiegazione_article, name="spiegazioneArticle"),
+    path('search-patterns/', search_patterns, name="search_patterns"),
+    path('send-notification/<pk>/', send_notification, name="search_patterns"),
+    path('exemple-patterns/<pk>/', exemple_patterns, name="exemple_patterns"),
+    path('privacy-by-design/<pk>/', privacy_by_design, name="exemple_patterns"),
 
     path('add-feedback/', add_Feedback, name="add_feedback"),
 

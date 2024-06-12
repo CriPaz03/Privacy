@@ -13,14 +13,14 @@ from posd.models import ArticleGdpr, Owasp, Pkb, Notification, Example, PrivacyB
 
 # Create your views here.
 
-def posdView(request):
+def posd_view(request):
     article = ArticleGdpr.Article.choices
     owasp = Owasp.TopTen.choices
     context = {'article': article, 'owasp': owasp}
     return render(request, "posd.html", context)
 
 
-def searchPatterns(request):
+def search_patterns(request):
     if request.method == "POST":
         json_str = request.body.decode('utf-8')
         data = json.loads(json_str)
@@ -45,7 +45,7 @@ def searchPatterns(request):
         return JsonResponse(dict_pkb)
 
 
-def sendNotification(request, pk):
+def send_notification(request, pk):
     if request.method == "GET":
         pkb = Pkb.objects.get(pk=pk)
         Notification.objects.create(pkb=pkb, user=request.user)
@@ -53,14 +53,14 @@ def sendNotification(request, pk):
     else:
         return JsonResponse({"success": False})
 
-def exemplePatterns(request, pk):
+def exemple_patterns(request, pk):
     if request.method == "GET":
         exemple = Example.objects.filter(pkb_id=pk).values("id", "example")
         dict_exemple = {}
         for i in exemple:
             dict_exemple.setdefault(i["id"], []).append(i["example"])
         return JsonResponse({"success": True, "exemple": dict_exemple})
-def privacyByDesign(request, pk):
+def privacy_by_design(request, pk):
     if request.method == "GET":
         design = PrivacyByDesign.objects.filter(pkb_id=pk).values("id", "design")
         dict_exemple = {}
@@ -73,12 +73,12 @@ def privacyByDesign(request, pk):
     return JsonResponse({"success": False})
 
 
-def posdViewAzienda(request):
+def posd_view_azienda(request):
     article = ArticleGdpr.Article.choices
     context = {'article': article, 'patterns': Pkb.objects.all()}
     return render(request, "azienda.html", context)
 
-def spiegazioneArticle(request, string):
+def spiegazione_article(request, string):
     if request.method == "GET":
         article = ArticleGdpr.Article(string).label
         openai.api_key = GPT_KEY
