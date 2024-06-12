@@ -8,6 +8,6 @@ from feedback.views import get_Feedback
 
 @require_http_methods(["GET"])
 def index(request):
-    feedback = get_Feedback()[:5]
+    feedback = get_Feedback()[5:]
     context = {"feedback": feedback}
     return render(request, "base.html", context)
