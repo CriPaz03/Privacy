@@ -12,20 +12,11 @@ def segnalazioneView(request):
 
 def sendSegnalazione(request):
     if request.method == "POST":
-        query_string = request.body.decode('utf-8')
         if request.user.is_authenticated:
-            start = query_string.find("message=") + len("message=")
-
-            # Trova la fine del valore di 'message'
-            end = query_string.find("&", start)
-            if end == -1:  # Se non c'è un altro parametro dopo 'message'
-                end = len(query_string)
-
-            # Estrarre il valore di 'message'
-            message_value = query_string[start:end]
+            json_str = request.body.decode('utf-8')
             Seganalazione.objects.create(
                 user=request.user,
-                description=message_value
+                description=json_str.replace(f"username={request.user.username}&message=", "")
             )
             return JsonResponse({"success": True})
     return JsonResponse({"success": False})

@@ -70,11 +70,12 @@ def privacyByDesign(request, pk):
                     dict_exemple.setdefault(i["id"], []).append(choice[1])
 
         return JsonResponse({"success": True, "privacy": dict_exemple})
+    return JsonResponse({"success": False})
 
 
 def posdViewAzienda(request):
     article = ArticleGdpr.Article.choices
-    context = {'article': article}
+    context = {'article': article, 'patterns': Pkb.objects.all()}
     return render(request, "azienda.html", context)
 
 def spiegazioneArticle(request, string):
