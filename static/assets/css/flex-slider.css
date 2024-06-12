@@ -26,6 +26,9 @@
 .flex-slider a:hover {
   outline: none;
 }
+a {
+  font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
 .slides,
 .slides > li,
 .flex-control-nav,
@@ -134,7 +137,6 @@ html[xmlns] .flexslider .slides {
   transition: all 0.3s ease-in-out;
 }
 .flex-direction-nav a:before {
-  font-family: "flexslider-icon";
   font-size: 26px;
   display: inline-block;
   content: '\f001';
@@ -185,7 +187,6 @@ html[xmlns] .flexslider .slides {
   color: #000;
 }
 .flex-pauseplay a:before {
-  font-family: "flexslider-icon";
   font-size: 20px;
   display: inline-block;
   content: '\f004';
