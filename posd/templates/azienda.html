@@ -35,7 +35,7 @@
                 <tbody id="bodyPatterns">
                     {% for p in patterns %}
                         <tr>
-                            <th><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios{{ p.id }}" value="option1" checked><label class="form-check-label" for="exampleRadios{{ p.id }}" id="{{ p.id }}"></label></th>
+                            <th id="{{ p.id }}"><input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios{{ p.id }}" value="option1" checked><label class="form-check-label" for="exampleRadios{{ p.id }}" id="{{ p.id }}"></label></th>
                             <td>{{ p.patterns }}</td>
                             <td>
                                 {% for a in p.articlegdpr_set.all %}
