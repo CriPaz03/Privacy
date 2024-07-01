@@ -1,12 +1,12 @@
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.shortcuts import HttpResponseRedirect, render
 from django.views.decorators.http import require_http_methods
 
 from accounts.forms import FormRegistrazione
 
 
-@require_http_methods(["POST"])
+@require_http_methods(["GET", "POST"])
 def registrazione_view(request):
     if request.method == "POST":
         form = FormRegistrazione(request.POST)
@@ -14,7 +14,13 @@ def registrazione_view(request):
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password1"]
-            User.objects.create_user(username=username, password=password, email=email)
+            groups = form.cleaned_data["password1"]
+            if groups == "azienda":
+                groups = Group.objects.get(name="Azienda")
+            else:
+                groups = Group.objects.get(name="Ingegnere del software")
+            user = User.objects.create_user(username=username, password=password, email=email)
+            groups.user_set.add(user)
             user = authenticate(username=username, password=password)
             login(request, user)
             return HttpResponseRedirect("/")
