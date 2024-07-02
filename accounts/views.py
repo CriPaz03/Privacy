@@ -14,13 +14,9 @@ def registrazione_view(request):
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             password = form.cleaned_data["password1"]
-            groups = form.cleaned_data["password1"]
-            if groups == "azienda":
-                groups = Group.objects.get(name="Azienda")
-            else:
-                groups = Group.objects.get(name="Ingegnere del software")
+            groups = form.cleaned_data["groups"]
             user = User.objects.create_user(username=username, password=password, email=email)
-            groups.user_set.add(user)
+            groups.last().user_set.add(user)
             user = authenticate(username=username, password=password)
             login(request, user)
             return HttpResponseRedirect("/")

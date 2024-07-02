@@ -29,18 +29,13 @@
                                    placeholder="Conferma Password*">Conferma password</label>
 
                         </div>
-                        <div style="text-align: left">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                       value="ingegnere">
-                                <label class="form-check-label" for="inlineRadio1">Ingegnere del Software</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                       value="azienda">
-                                <label class="form-check-label" for="inlineRadio2">Azienda</label>
-                            </div>
-                        </div>
+                        <label for="id_groups">Gruppo</label>
+                        <select name="groups" id="id_groups" multiple="">
+                          <option value="1">Azienda</option>
+
+                          <option value="2">Ingegnere del software</option>
+
+                        </select>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Registrati</button>
                         </div>

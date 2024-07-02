@@ -1,3 +1,4 @@
+{% load auth_extras %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="it">
@@ -133,14 +134,13 @@
                                 <span class="category">Ingegnere del software</span>
                                 <h2>Ricerca il privacy patter adatto alle tue esigenze</h2>
                                 <p>Privacy Pattern ...</p>
-                                <div class="buttons">
-                                    <div class="main-button">
-                                        <a href="{% url 'posd' %}" target="_blank">Visualizza</a>
+                                {% if request.user.is_authenticated and request.user|has_group:"Ingegnere del software" %}
+                                    <div class="buttons">
+                                        <div class="main-button">
+                                            <a href="{% url 'posd' %}" target="_blank">Visualizza</a>
+                                        </div>
                                     </div>
-                                    <!--<div class="icon-button">
-                                    <a href="#"><i class="fa fa-play"></i> What's Scholar?</a>
-                                  </div>-->
-                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="item item-2">
@@ -153,14 +153,13 @@
                                     rilevanti per le imprese,
                                     inclusi gli ultimi sviluppi legislativi e le migliori pratiche per la gestione della
                                     privacy e dei dati personali</p>
-                                <div class="buttons">
-                                    <div class="main-button">
-                                        <a href="{% url 'posd_azienda' %}">Visita ora</a>
+                                {% if request.user.is_authenticated and request.user|has_group:"Azienda" %}
+                                    <div class="buttons">
+                                        <div class="main-button">
+                                            <a href="{% url 'posd_azienda' %}">Visita ora</a>
+                                        </div>
                                     </div>
-                                    <!--<div class="icon-button">
-                                    <a href="#"><i class="fa fa-play"></i> What's the best result?</a>
-                                  </div>-->
-                                </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="item item-3">
@@ -171,14 +170,6 @@
                                     Protezione dei Dati.
                                     Una risorsa indispensabile per rimanere informati e conformi alle normative sulla
                                     privacy e sulla protezione dei dati.</p>
-                                <div class="buttons">
-                                    <div class="main-button">
-                                        <a href="#">Visita ora</a>
-                                    </div>
-                                    <div class="icon-button">
-                                        <a href="#"><i class="fa fa-play"></i> What's Online Course?</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
