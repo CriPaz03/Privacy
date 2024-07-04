@@ -91,12 +91,6 @@ def posd_view_azienda(request):
 @require_http_methods(["GET"])
 def spiegazione_article(request, string):
     if request.method == "GET":
-        article = ArticleGdpr.Article(string).label
-        openai.api_key = GPT_KEY
-        stream = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": f"Mi spieghi questo articolo del gdpr ${article}"}],
-        )
-
-        return JsonResponse({"success": True, "response": str(stream.chois[0].message.content)})
+        article = ArticleGdpr.objects.filter(article=string, spiegazione__isnull=False).first()
+        return JsonResponse({"success": True, "response": str(article.spiegazione)})
     return JsonResponse({"success": False})

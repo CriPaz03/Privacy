@@ -32,6 +32,7 @@ urlpatterns = [
     path('posd/', posd_view, name="posd"),
     path('posd-azienda/', posd_view_azienda, name="posd_azienda"),
     path('spiegazioneArticle/<string>/', spiegazione_article, name="spiegazioneArticle"),
+
     path('search-patterns/', search_patterns, name="search_patterns"),
     path('send-notification/<pk>/', send_notification, name="search_patterns"),
     path('exemple-patterns/<pk>/', exemple_patterns, name="exemple_patterns"),

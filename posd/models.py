@@ -24,8 +24,9 @@ class ArticleGdpr(models.Model):
         article28 = "A28", "Article 28"
         article32 = "A32", "Article 32"
         article35 = "A35", "Article 35"
-    pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True )
+    pkb = models.ForeignKey(Pkb, on_delete=models.CASCADE, blank=True)
     article = models.CharField(choices=Article.choices, blank=True, max_length=3)
+    spiegazione = models.TextField(verbose_name="Spiegazione", blank=True)
 
 
 class Owasp(models.Model):

@@ -5,7 +5,11 @@ $(document).ready(function (){
             url: "/spiegazioneArticle/" +  $("#article").val() + "/",
             success: function (response){
                 if(response["success"] === true){
-                    $("#responseGpt").text(response["response"])
+                    $("#modalSpiegazione").show()
+                    $("#modalSpiegazione #bodySpiegazione").text(response["response"])
+                    $(".close").on("click", function (){
+                        $("#modalSpiegazione").hide()
+                    })
                 }
             }
         })
